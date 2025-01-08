@@ -1,0 +1,5 @@
+{
+  "AppSyncApiName": "aigames",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false
+}
