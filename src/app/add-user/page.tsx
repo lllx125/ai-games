@@ -4,7 +4,6 @@ import config from "@/amplifyconfiguration.json";
 import { createUser } from "@/graphql/mutations";
 import { generateClient } from "aws-amplify/api";
 import { useState } from "react";
-import { listUsers } from "@/graphql/queries";
 
 Amplify.configure(config);
 const client = generateClient();

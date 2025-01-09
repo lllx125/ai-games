@@ -1,10 +1,5 @@
 import Link from "next/link";
 import "./globals.css";
-import { Amplify } from "aws-amplify";
-import config from "@/amplifyconfiguration.json";
-import { generateClient } from "aws-amplify/api";
-Amplify.configure(config);
-const client = generateClient();
 
 export default async function RootLayout({
     children,
