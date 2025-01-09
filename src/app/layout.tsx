@@ -9,6 +9,7 @@ export default async function RootLayout({
     return (
         <html lang="en">
             <body>
+                {/* The navigation bar, it shows up in all pages. Next.js has its link structure the same as the folder structure, so make the href accordingly */}
                 <nav className="bg-gray-300 p-4">
                     <Link className="m-4" href="/">
                         Home
@@ -20,6 +21,7 @@ export default async function RootLayout({
                         Add User
                     </Link>
                 </nav>
+                {/* The content of all the pages comes here */}
                 {children}
             </body>
         </html>
