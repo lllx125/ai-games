@@ -16,6 +16,7 @@ export default async function ScoreBoard() {
             <Link
                 href={`/score-board/${item.id}`}
                 className="rounded-md bg-yellow-100 my-1 p-4 flex content-stretch"
+                key={item.id}
             >
                 <h1 className="text-4xl font-bold mx-1">{item.username}</h1>
                 <h1 className="text-4xl font-bold mx-1">{item.score}</h1>

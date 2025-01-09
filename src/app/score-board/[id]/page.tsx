@@ -6,8 +6,12 @@ import DeleteButton from "./DeleteButton";
 Amplify.configure(config);
 const client = generateClient();
 
-export default async function UserPage({ params }: any) {
-    const ID = params.id;
+export default async function UserPage({
+    params,
+}: {
+    params: Promise<{ id: string }>;
+}) {
+    const ID = (await params).id;
     try {
         const user = await client.graphql({
             query: getUser,
