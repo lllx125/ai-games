@@ -6,7 +6,7 @@ input AMPLIFY {
 type Chat @model {
     id: ID!
     title: String!
-    user: Int!
+    user: User! @hasOne
     sentences: [Sentence] @hasMany
 }
 
@@ -15,4 +15,11 @@ type Sentence @model {
     role: String!
     content: String!
     Chat: Chat @belongsTo
+}
+
+type User @model {
+    id: ID!
+    username: String!
+    email: String!
+    score: Int!
 }

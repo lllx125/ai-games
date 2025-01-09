@@ -10,6 +10,14 @@
       "StackName": "amplify-aigames-dev-bc9f9",
       "StackId": "arn:aws:cloudformation:us-east-1:761018862582:stack/amplify-aigames-dev-bc9f9/8fd4b530-cd7e-11ef-89e3-0ebfc552ac31",
       "AmplifyAppId": "d3psedqj1n9put"
+    },
+    "categories": {
+      "api": {
+        "aigames": {}
+      },
+      "auth": {
+        "aigames3b316c26": {}
+      }
     }
   }
 }
