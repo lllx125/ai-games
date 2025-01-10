@@ -7,11 +7,13 @@ export type AmplifyDependentResourcesAttributes = {
     }
   },
   "auth": {
-    "aigames3b316c26": {
+    "aigamesc7657517": {
       "AppClientID": "string",
       "AppClientIDWeb": "string",
+      "HostedUIDomain": "string",
       "IdentityPoolId": "string",
       "IdentityPoolName": "string",
+      "OAuthMetadata": "string",
       "UserPoolArn": "string",
       "UserPoolId": "string",
       "UserPoolName": "string"

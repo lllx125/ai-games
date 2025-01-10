@@ -20,7 +20,7 @@
     }
   },
   "auth": {
-    "aigames3b316c26": {
+    "aigamesc7657517": {
       "customAuth": false,
       "dependsOn": [],
       "frontendAuthConfig": {
@@ -35,10 +35,10 @@
         "signupAttributes": [
           "EMAIL"
         ],
-        "socialProviders": [],
-        "usernameAttributes": [
-          "EMAIL"
+        "socialProviders": [
+          "GOOGLE"
         ],
+        "usernameAttributes": [],
         "verificationMechanisms": [
           "EMAIL"
         ]
