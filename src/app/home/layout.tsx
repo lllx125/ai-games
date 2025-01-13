@@ -6,15 +6,20 @@ export default function HomeLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <div className="flex items-center bg-[#fdffef]">
-            <Image
-                src="/villageBackground.png"
-                alt="village background"
-                width={800}
-                height={1024}
-            />
+        <div className="h-screen flex bg-[#fdffef]">
+            <div className="flex-none w-auto h-full">
+                <Image
+                    src="/villageBackground.png"
+                    alt="village background"
+                    width={800}
+                    height={1024}
+                    className="h-full w-auto"
+                />
+            </div>
 
-            <div className="items-center">{children}</div>
+            <div className="flex-1 items-center flex justify-center">
+                {children}
+            </div>
         </div>
     );
 }
