@@ -14,6 +14,7 @@ export default function HomeLayout({
                     width={800}
                     height={1024}
                     className="h-full w-auto"
+                    priority
                 />
             </div>
 

@@ -13,7 +13,7 @@ export default function Home() {
                 text="START"
                 w={200}
                 h={60}
-                size={32}
+                size={30}
                 link="/game-selection"
             />
         </div>

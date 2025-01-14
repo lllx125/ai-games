@@ -23,20 +23,13 @@ export default function BrownButton(props: {
     };
 
     return (
-        <Button
-            className="flex p-[5px_30px] justify-center items-center rounded-[20px] bg-[#FAE5D0] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] hover:bg-[#e7c7be] active:shadow-none"
-            style={{
-                width: `${props.w}px`,
-                height: `${props.h}px`,
-            }}
-            onClick={handleClick}
-        >
-            <div
-                className="font-light leading-normal"
-                style={{ font: `${props.size}px` }}
+        <div style={{ fontSize: `${props.size}px` }}>
+            <Button
+                className={`w-[${props.w}px] h-[${props.h}px]  flex p-[8px_30px] justify-center items-center rounded-[20px] bg-[#FAE5D0] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] hover:bg-[#e7c7be] active:shadow-none font-light`}
+                onClick={handleClick}
             >
                 {props.text}
-            </div>
-        </Button>
+            </Button>
+        </div>
     );
 }

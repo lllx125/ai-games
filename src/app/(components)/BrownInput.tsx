@@ -28,7 +28,7 @@ export default function BrownInput(props: {
                     onChange={props.onChange}
                     onFocus={() => setIsFocused(true)}
                     onBlur={() => setIsFocused(false)}
-                    className="flex-grow outline-none bg-transparent"
+                    className="flex-grow outline-none bg-transparent text-[15px]"
                 />
             </div>
         </div>

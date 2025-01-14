@@ -1,47 +1,64 @@
 "use client";
-import { autoSignIn, signIn } from "aws-amplify/auth";
+import { autoSignIn, getCurrentUser, signIn } from "aws-amplify/auth";
 import BrownButton from "../../(components)/BrownButton";
 import { useEffect, useState } from "react";
 import BrownInput from "@/app/(components)/BrownInput";
 import BrownLink from "@/app/(components)/BrownLink";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 import { Amplify } from "aws-amplify";
 import config from "@/amplifyconfiguration.json";
+import LoadingSpinner from "@/app/(components)/LoadingSpinner";
 Amplify.configure(config);
-
-async function handleAutoSignIn() {
-    try {
-        const signInOutput = await autoSignIn();
-        // handle sign-in steps
-    } catch (error) {
-        console.log(error);
-    }
-}
 
 export default function SignIn() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [warning, setWarning] = useState("");
+    const [loading, setLoading] = useState(false);
     const router = useRouter();
+    const searchParams = useSearchParams();
+    const from = searchParams.get("from");
     useEffect(() => {
         handleAutoSignIn();
+        checkSignIn();
     }, [router]);
 
+    const handleAutoSignIn = async () => {
+        try {
+            const signInOutput = await autoSignIn();
+            router.push("/" + from);
+            // handle sign-in steps
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    const checkSignIn = async () => {
+        try {
+            await getCurrentUser();
+            router.push("/" + from);
+        } catch (error) {}
+    };
+
     const handleSignIn = async () => {
+        setLoading(true);
         try {
             const { isSignedIn, nextStep } = await signIn({
                 username,
                 password,
             });
-            router.push("/game-selection");
+            router.push("/" + from);
         } catch (error) {
             setWarning("Username or password is incorrect");
             console.log("error signing in", error);
+        } finally {
+            setLoading(false);
         }
     };
     return (
         <div className="flex flex-col items-start flex-shrink-0 animate-fadeIn w-full px-[120px]">
+            {loading && <LoadingSpinner />}
             <h1 className="text-[48px] font-light leading-normal py-[35px]">
                 Sign In
             </h1>
@@ -73,7 +90,7 @@ export default function SignIn() {
             </div>
             <div className="flex text-[20px] font-light leading-normal">
                 <h3 className="mr-1">Don't have an account? </h3>
-                <BrownLink href="sign-up" text="Sign up" />
+                <BrownLink href={`sign-up?from=${from}`} text="Sign up" />
             </div>
             <div className="flex text-[20px] font-light leading-normal">
                 <BrownLink href="/home" text="Home" />

@@ -4,12 +4,13 @@ import BrownButton from "../../(components)/BrownButton";
 import { useState } from "react";
 import BrownInput from "@/app/(components)/BrownInput";
 import BrownLink from "@/app/(components)/BrownLink";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 import { Amplify } from "aws-amplify";
 import config from "@/amplifyconfiguration.json";
 import { createUser } from "@/graphql/mutations";
 import { generateClient } from "aws-amplify/api";
+import LoadingSpinner from "@/app/(components)/LoadingSpinner";
 Amplify.configure(config);
 const client = generateClient();
 
@@ -19,8 +20,11 @@ export default function SignUp() {
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [warning, setWarning] = useState("");
+    const [loading, setLoading] = useState(false);
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const router = useRouter();
+    const searchParams = useSearchParams();
+    const from = searchParams.get("from");
 
     const handleSignUp = async () => {
         if (emailRegex.test(email)) {
@@ -35,6 +39,7 @@ export default function SignUp() {
             setWarning("Password do not match");
             return;
         }
+        setLoading(true);
         try {
             const { isSignUpComplete, userId, nextStep } = await signUp({
                 username,
@@ -56,17 +61,20 @@ export default function SignUp() {
                 query: createUser,
                 variables: { input: newUser },
             });
-            router.push("/verify-email");
+            router.push("verify-email?from=" + from + "&user=" + username);
         } catch (error: any) {
             if (error.name == "UsernameExistsException") {
                 setWarning("Username already exists");
             }
             console.log(error);
+        } finally {
+            setLoading(false);
         }
     };
 
     return (
         <div className="flex flex-col items-start flex-shrink-0 animate-fadeIn w-full px-[120px]">
+            {loading && <LoadingSpinner />}
             <h1 className="text-[48px] font-light leading-normal py-[35px]">
                 Sign Up
             </h1>
@@ -110,7 +118,7 @@ export default function SignUp() {
             </div>
             <div className="flex text-[20px] font-light leading-normal">
                 <h3 className="mr-1">Already have an account? </h3>
-                <BrownLink href="sign-in" text="Sign in" />
+                <BrownLink href={`sign-in?from=${from}`} text="Sign in" />
             </div>
             <div className="flex text-[20px] font-light leading-normal">
                 <BrownLink href="/home" text="Home" />
