@@ -6,7 +6,7 @@ export default function BrownInput(props: {
     label: string;
     type: string;
     value: string;
-    onChange: (e: any) => void;
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }) {
     const [isFocused, setIsFocused] = useState(false);
 

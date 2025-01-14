@@ -1,4 +1,3 @@
-import CustomAuthenticator from "../(components)/CustomAuthenticator";
 import SignOutButton from "../(components)/SignOutButton";
 
 export default function GameSelection() {

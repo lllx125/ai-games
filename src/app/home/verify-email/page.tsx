@@ -1,10 +1,5 @@
 "use client";
-import {
-    autoSignIn,
-    confirmSignUp,
-    ConfirmSignUpInput,
-    resendSignUpCode,
-} from "aws-amplify/auth";
+import { autoSignIn, confirmSignUp, resendSignUpCode } from "aws-amplify/auth";
 import BrownButton from "../../(components)/BrownButton";
 import { useState } from "react";
 import BrownInput from "@/app/(components)/BrownInput";
@@ -28,7 +23,7 @@ export default function VerifyEmail() {
     const handleSignUpConfirmation = async () => {
         setLoading(true);
         try {
-            const { isSignUpComplete, nextStep } = await confirmSignUp({
+            await confirmSignUp({
                 username,
                 confirmationCode: String(parseInt(code)),
             });
@@ -36,6 +31,7 @@ export default function VerifyEmail() {
             router.push(from ? "/" + from : "/");
         } catch (error) {
             setWarning("Your code is incorrect");
+            console.log(error);
         } finally {
             setLoading(false);
         }

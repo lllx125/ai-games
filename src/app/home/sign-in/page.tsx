@@ -22,12 +22,12 @@ export default function SignIn() {
     useEffect(() => {
         handleAutoSignIn();
         checkSignIn();
-    }, [router]);
+    });
 
     const handleAutoSignIn = async () => {
         try {
-            const signInOutput = await autoSignIn();
-            router.push("/" + from);
+            await autoSignIn();
+            router.push(from ? "/" + from : "/");
             // handle sign-in steps
         } catch (error) {
             console.log(error);
@@ -37,18 +37,20 @@ export default function SignIn() {
     const checkSignIn = async () => {
         try {
             await getCurrentUser();
-            router.push("/" + from);
-        } catch (error) {}
+            router.push(from ? "/" + from : "/");
+        } catch (error) {
+            console.log(error);
+        }
     };
 
     const handleSignIn = async () => {
         setLoading(true);
         try {
-            const { isSignedIn, nextStep } = await signIn({
+            await signIn({
                 username,
                 password,
             });
-            router.push("/" + from);
+            router.push(from ? "/" + from : "/");
         } catch (error) {
             setWarning("Username or password is incorrect");
             console.log("error signing in", error);
@@ -89,7 +91,7 @@ export default function SignIn() {
                 />
             </div>
             <div className="flex text-[20px] font-light leading-normal">
-                <h3 className="mr-1">Don't have an account? </h3>
+                <h3 className="mr-1">Don&apos;t have an account? </h3>
                 <BrownLink href={`sign-up?from=${from}`} text="Sign up" />
             </div>
             <div className="flex text-[20px] font-light leading-normal">

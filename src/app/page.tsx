@@ -7,7 +7,7 @@ export default function App() {
     //redirect to home page
     useEffect(() => {
         router.push("/home");
-    }, []);
+    });
 
     return <></>;
 }

@@ -23,7 +23,7 @@ export default function CustomAuthenticator({ children }: ProtectedRouteProps) {
     };
     const handleAutoSignIn = async () => {
         try {
-            const signInOutput = await autoSignIn();
+            await autoSignIn();
             setLoggedIn(true);
             // handle sign-in steps
         } catch (error) {
@@ -34,7 +34,7 @@ export default function CustomAuthenticator({ children }: ProtectedRouteProps) {
     useEffect(() => {
         handleAutoSignIn();
         checkUser();
-    }, [router]);
+    });
 
     return <>{loggedIn ? children : <></>}</>;
 }

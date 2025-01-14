@@ -41,7 +41,7 @@ export default function SignUp() {
         }
         setLoading(true);
         try {
-            const { isSignUpComplete, userId, nextStep } = await signUp({
+            await signUp({
                 username,
                 password,
                 options: {
@@ -62,8 +62,11 @@ export default function SignUp() {
                 variables: { input: newUser },
             });
             router.push("verify-email?from=" + from + "&user=" + username);
-        } catch (error: any) {
-            if (error.name == "UsernameExistsException") {
+        } catch (error) {
+            if (
+                error instanceof Error &&
+                error.name == "UsernameExistsException"
+            ) {
                 setWarning("Username already exists");
             }
             console.log(error);
