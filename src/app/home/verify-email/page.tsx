@@ -3,6 +3,7 @@ import {
     autoSignIn,
     confirmSignUp,
     ConfirmSignUpInput,
+    resendSignUpCode,
 } from "aws-amplify/auth";
 import BrownButton from "../../(components)/BrownButton";
 import { useState } from "react";
@@ -23,6 +24,7 @@ export default function VerifyEmail() {
     const searchParams = useSearchParams();
     const from = searchParams.get("from");
     const username = "" + searchParams.get("user");
+    const resendCode = () => resendSignUpCode({ username: username });
     const handleSignUpConfirmation = async () => {
         setLoading(true);
         try {
@@ -55,6 +57,12 @@ export default function VerifyEmail() {
             ) : (
                 <></>
             )}
+            <div
+                className="flex text-[20px] font-light leading-normal"
+                onClick={resendCode}
+            >
+                <BrownLink href="#" text="Resend Code" />
+            </div>
             <div className="py-[25px]">
                 <BrownButton
                     text="Verify"
@@ -63,9 +71,6 @@ export default function VerifyEmail() {
                     size={20}
                     onClick={() => handleSignUpConfirmation()}
                 />
-            </div>
-            <div className="flex text-[20px] font-light leading-normal">
-                <BrownLink href={"sign-up?from=" + from} text="Back" />
             </div>
         </div>
     );
