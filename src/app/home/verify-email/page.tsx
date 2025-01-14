@@ -39,9 +39,12 @@ export default function VerifyEmail() {
     return (
         <div className="flex flex-col items-start flex-shrink-0 animate-fadeIn w-full px-[120px]">
             {loading && <LoadingSpinner />}
-            <h1 className="text-[48px] font-light leading-normal py-[35px]">
+            <h1 className="text-[48px] font-light leading-normal py-[20px]">
                 Verify your email
             </h1>
+            <h3 className="text-[24px] font-light leading-normal py-[15px]">
+                We have sent a verification code to your email
+            </h3>
             <BrownInput
                 label="Verification Code"
                 type="input"

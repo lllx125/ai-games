@@ -1,10 +1,10 @@
 {
   "version": "1",
   "cognitoConfig": {
-    "identityPoolName": "aigamesc7657517_identitypool_c7657517",
+    "identityPoolName": "aigames09d3cc2c_identitypool_09d3cc2c",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "aigamec7657517",
-    "userPoolName": "aigamesc7657517_userpool_c7657517",
+    "resourceNameTruncated": "aigame09d3cc2c",
+    "userPoolName": "aigames09d3cc2c_userpool_09d3cc2c",
     "autoVerifiedAttributes": [
       "email"
     ],
@@ -31,20 +31,12 @@
     "userpoolClientReadAttributes": [
       "email"
     ],
-    "userpoolClientLambdaRole": "aigamec7657517_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "aigame09d3cc2c_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "c7657517",
-    "resourceName": "aigamesc7657517",
+    "sharedId": "09d3cc2c",
+    "resourceName": "aigames09d3cc2c",
     "authSelections": "identityPoolAndUserPool",
-    "useDefault": "defaultSocial",
-    "hostedUI": true,
-    "triggers": {},
-    "hostedUIDomainName": "aigamesc7657517-c7657517",
-    "authProvidersUserPool": [
-      "Google"
-    ],
-    "hostedUIProviderMeta": "[{\"ProviderName\":\"Google\",\"authorize_scopes\":\"openid email profile\",\"AttributeMapping\":{\"email\":\"email\",\"username\":\"sub\"}}]",
-    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"http://localhost:3000/\"],\"LogoutURLs\":[\"http://localhost:3000/\"]}",
+    "useDefault": "default",
     "userPoolGroupList": [],
     "serviceName": "Cognito",
     "usernameCaseSensitive": false,

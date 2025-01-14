@@ -20,7 +20,7 @@
     }
   },
   "auth": {
-    "aigamesc7657517": {
+    "aigames09d3cc2c": {
       "customAuth": false,
       "dependsOn": [],
       "frontendAuthConfig": {
@@ -35,9 +35,7 @@
         "signupAttributes": [
           "EMAIL"
         ],
-        "socialProviders": [
-          "GOOGLE"
-        ],
+        "socialProviders": [],
         "usernameAttributes": [],
         "verificationMechanisms": [
           "EMAIL"
@@ -46,5 +44,6 @@
       "providerPlugin": "awscloudformation",
       "service": "Cognito"
     }
-  }
+  },
+  "hosting": {}
 }
