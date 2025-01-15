@@ -2,6 +2,9 @@
 import { Button } from "@aws-amplify/ui-react";
 import { useRouter } from "next/navigation";
 
+/**
+ * A button with a style, hover and clicking has different effects
+ */
 export default function BrownButton(props: {
     text: string;
     w: number;
@@ -12,6 +15,10 @@ export default function BrownButton(props: {
 }) {
     const router = useRouter();
 
+    /**
+     * go to the link id the user provides a link
+     * do onClick if the user provides a function
+     */
     const handleClick = () => {
         if (props.link) {
             // Navigate to the provided link

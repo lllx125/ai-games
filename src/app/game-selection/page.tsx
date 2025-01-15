@@ -1,4 +1,3 @@
-import SignOutButton from "../(components)/SignOutButton";
 import { TheRizzGameWedge } from "./GameWedge";
 
 export default function GameSelection() {
@@ -12,7 +11,6 @@ export default function GameSelection() {
                     Explore new forms of games with AI
                 </h2>
                 <TheRizzGameWedge />
-                <SignOutButton />
             </div>
         </div>
     );

@@ -1,5 +1,9 @@
 import Image from "next/image";
+import { Suspense } from "react";
 
+/**
+ * Renders the side image on the left for every page under /home
+ */
 export default function HomeLayout({
     children,
 }: Readonly<{
@@ -7,6 +11,7 @@ export default function HomeLayout({
 }>) {
     return (
         <div className="h-screen flex bg-[#fdffef]">
+            {/* image on the left */}
             <div className="flex-none w-auto h-full">
                 <Image
                     src="/villageBackground.png"
@@ -17,9 +22,9 @@ export default function HomeLayout({
                     priority
                 />
             </div>
-
+            {/* content of eac specific page on the right */}
             <div className="flex-1 items-center flex justify-center">
-                {children}
+                <Suspense>{children}</Suspense>
             </div>
         </div>
     );

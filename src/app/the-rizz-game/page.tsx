@@ -1,5 +1,3 @@
-import SignOutButton from "../(components)/SignOutButton";
-
 export default function GameSelection() {
     return (
         <div className="h-full w-full bg-[#fdffef]">
@@ -10,7 +8,6 @@ export default function GameSelection() {
                 <h2 className="text-center text-[20px] font-light leading-normal">
                     Explore new forms of games with AI
                 </h2>
-                <SignOutButton />
             </div>
         </div>
     );

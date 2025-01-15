@@ -1,9 +1,6 @@
-import BrownButton from "../(components)/BrownButton";
+import BrownButton from "@/app/(components)/BrownButton";
 
-/**
- * Renders the home page with title and a start button
- */
-export default function Home() {
+export default function Chats() {
     return (
         <div className="flex flex-col items-center gap-[36px] flex-shrink-0 animate-fadeIn">
             <h1 className="text-[48px] font-light leading-normal">
